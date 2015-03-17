@@ -11,11 +11,18 @@
             <form action='/categories' method='post'>
                            <label for='name'>Category Name</label>
                            <input id='name' name='name' type='text'>
-                           <button type='submit'>Add task</button>
+                           <button type='submit'>Add Category</button>
                        </form>
-
-            
-            <p><a href="/categories">Click here</a> to see all of the categories and to add a category.</p>
+            {% if categories is not empty %}
+                <p>Here are all your categories:</p>
+                <ul>
+                    {% for category in categories %}
+                        <li><a href="/categories/{{ category.getId}}">{{ category.getName}}    the id is:   {{ category.getId}}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+            <p>There are no categories yet!</p>
+            {% endif %}
            <p><a href="/tasks">Click here</a> to see all of the tasks and to add a task.</p>
         </div>
     </body>
