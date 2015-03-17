@@ -2,7 +2,9 @@ CREATE DATABASE to_do;
 
 CREATE TABLE tasks (id serial PRIMARY KEY, description varchar);
 
-CREATE TABLE categories (id serial PRIMARY KEY , type varchar);
+CREATE TABLE categories (id serial PRIMARY KEY , name varchar);
+
+ALTER TABLE tasks ADD category_id int;
 
 
 
@@ -20,6 +22,12 @@ UPDATE contacts SET name = 'Wes Anderson' WHERE id = 1;
 DELETE FROM contacts WHERE id = 1;
 DROP TABLE table_name; # From the database that holds the table.
 DROP DATABASE test_database; # From the $USER database.
+
+
+
+to_do=# ALTER TABLE tasks ADD category_id int;
+to_do=# DROP DATABASE to_do_test;
+to_do=# CREATE DATABASE to_do_test WITH TEMPLATE to_do;
 
 
 Change Column name:

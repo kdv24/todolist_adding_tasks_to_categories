@@ -83,6 +83,7 @@
                   // assigns in to $found_category
                 }
             }
+
             return $found_category;
         }
     }
