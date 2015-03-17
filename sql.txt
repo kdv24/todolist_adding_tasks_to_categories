@@ -1,0 +1,35 @@
+CREATE DATABASE to_do;
+
+CREATE TABLE tasks (id serial PRIMARY KEY, description varchar);
+
+CREATE TABLE categories (id serial PRIMARY KEY , type varchar);
+
+
+
+
+
+
+
+CREATE DATABASE database_name; # From the $USER database.
+CREATE TABLE table_name (id serial PRIMARY KEY, some_column varchar, another_column int, yet_another_column timestamp);
+ALTER TABLE table_name ADD column_name boolean;
+ALTER TABLE table_name DROP column_name;
+INSERT INTO contacts (name, age, birthday) VALUES ('Wes', 43, '1969-05-01') RETURNING id;
+SELECT * FROM table_name WHERE age >= 18;
+UPDATE contacts SET name = 'Wes Anderson' WHERE id = 1;
+DELETE FROM contacts WHERE id = 1;
+DROP TABLE table_name; # From the database that holds the table.
+DROP DATABASE test_database; # From the $USER database.
+
+
+Change Column name:
+ALTER TABLE table_name  RENAME COLUMN old_name to new_name;
+
+
+Common psql commands:
+
+List all databases: \l
+Connect to database: \c database_name
+List tables in current database: \dt
+List columns in a table: \d table_name
+Exit out of help menu: q

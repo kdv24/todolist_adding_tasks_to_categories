@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <head>
+
+    <title>To Do List</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+
+  </head>
+    <body>
+        <div class='container'>
+        {% if categories is not empty %}
+        <p>Here are your categories</p>
+        <ul>
+            {% for category in categories %}
+                <li>{{category.getName}}</li>
+            {% endfor %}
+        </ul>
+        {%  endif %}
+
+
+        <form action='/categories' method='post'>
+                       <label for='name'>Category Name</label>
+                       <input id='name' name='name' type='text'>
+                       <button type='submit'>Add task</button>
+                   </form>
+
+        <form action='/delete_categories' method='post'>
+
+                   <button type='submit'>Clear All</button>
+                  </form>
+
+        </div>
+    </body>
+</html>
