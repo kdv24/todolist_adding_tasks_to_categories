@@ -39,10 +39,10 @@
 
 
 
-    $app->get("/categories/{id}",function($id) use ($app) {
+    $app->get("/category_w_tasks/{id}",function($id) use ($app) {
 
         $category= Category::find($id);
-        return $app['twig']->render('/category.twig', array('category' =>$category, 'tasks'=>$category->getTasks()));
+        return $app['twig']->render('/category_w_tasks.twig', array('category' =>$category, 'tasks'=>$category->getTasks()));
     });
 
 
@@ -74,7 +74,7 @@
     $task = new Task($description, $id = null, $category_id);
     $task->save();
     $category = Category::find($category_id);
-    return $app['twig']->render('category.twig', array('category' => $category, 'tasks' => Task::getAll()));
+    return $app['twig']->render('category_w_tasks.twig', array('category' => $category, 'tasks' => Task::getAll()));
 });
 
 

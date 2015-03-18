@@ -3,27 +3,37 @@
 
     <title>To Do List</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 
   </head>
-    <body>
-        <div class='container'>
-
+    <body> 
+      <h1>Welcome to your To Do List</h1>
+      <h2>index.twig</h2>
+        <div class="container">
+          <p>Create a new category</p>
+            <div class='container'>
             <form action='/categories' method='post'>
-                           <label for='name'>Category Name</label>
-                           <input id='name' name='name' type='text'>
-                           <button type='submit'>Add Category</button>
-                       </form>
+               <label for='name'>Category Name:</label>
+               <input id='name' name='name' type='text'>
+
+               <button type='submit'>Add Category</button>
+            </form>
+
             {% if categories is not empty %}
-                <p>Here are all your categories:</p>
+                <h4>Here are your current categories.  Click on the one where you'd like to add a task.</h4>
                 <ul>
                     {% for category in categories %}
-                        <li><a href="/categories/{{ category.getId}}">{{ category.getName}}    the id is:   {{ category.getId}}</a></li>
+                        <h5><a href="/category_w_tasks/{{ category.getId }}">{{ category.getName}}</a></h5>
                     {% endfor %}
                 </ul>
-            {% else %}
-            <p>There are no categories yet!</p>
+            </div>    
+                <form action='/delete_categories' method="post">
+                  <button class=" btn btn-success delete" type="submit">Delete all categories</button>
+                </form>    
+                <br>
+                 <a href='/'><button class="btn btn-success">Home</button></a>
+                 <br>       
             {% endif %}
-           <p><a href="/tasks">Click here</a> to see all of the tasks and to add a task.</p>
         </div>
     </body>
 </html>

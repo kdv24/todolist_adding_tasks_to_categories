@@ -3,21 +3,41 @@
 
     <title>To Do List</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 
   </head>
-    <body>
-        <div class='container'>
-        {% if categories is not empty %}
-        <p>Here are your categories</p>
-        <ul>
-            {% for category in categories %}
-                <li>{{category.getName}}</li>
-            {% endfor %}
-        </ul>
-        {%  endif %}
+    <body> 
+      <h1>Welcome to your To Do List</h1>
+      <h2>categories.twig</h2>
+          <div class='container'>
+            <form action='/categories' method='post'>
+               <label for='name'>Category Name:</label>
+               <input id='name' name='name' type='text'>
+
+               <button type='submit'>Add Category</button>
+            </form>
+
+            {% if categories is not empty %}
+                <p>Here are your categories:</p>
+                <ul>
+                    {% for category in categories %}
+                        <h5> <a href="/categories/{{ category.getId}}">{{ category.getName}}</a></h5>
+                    {% endfor %}
+                </ul>
+            {% else %}
+            <p>There are no categories yet!</p>
+            {% endif %}
+            <a href="/"><button class=" btn btn-success delete" type="submit">Home</button></a>
+
+          </div>
+    </body>
+</html>
 
 
-        <form action='/categories' method='post'>
+
+
+
+       <!--  <form action='/categories' method='post'>
                        <label for='name'>Category Name</label>
                        <input id='name' name='name' type='text'>
                        <button type='submit'>Add Category</button>
@@ -33,3 +53,4 @@
         </div>
     </body>
 </html>
+ -->

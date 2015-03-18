@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+  <head>
+
+    <title>To Do List</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+  </head>
+    <body> 
+        <h1>Welcome to your To Do List</h1>
+        <h2>category_w_tasks.twig</h2>
+        <div class="container">
+            <h3>{{ category.getName }}</h3>
+            {% if tasks is not empty %}
+                <ul>
+                    {% for task in tasks %}
+                        <h5>{{ task.getDescription }}</h5>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form action='/tasks' method='post'>
+                <input id="category_id" name="category_id" type="hidden" value="{{ category.getId() }}">
+
+                <input id='description' name='description' type='text' placeholder="task description">
+
+                <button type='submit'>Add task</button>
+            </form>
+    
+            <br>
+            <a href='/'><button class="btn btn-success">Home</button></a>
+            <br>
+            <br>
+</body>
+</html>
